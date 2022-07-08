@@ -9,11 +9,7 @@
 
 #endif
 
-/* Определитель матрицы +
-
-Нахождение обратной матрицы
-
-Транспонирование матрицы*/
+/* арифметика векторов */
 
 class Vector {
 public:
@@ -101,6 +97,10 @@ Vector operator* (Vector vector, double scalar) {
 
 double operator* (Vector vector1, Vector vector2) {
     double sum = 0;
+    if (vector1.isRow == vector2.isRow) {
+        std::cerr << "Same position!";
+        std::exit(-1);
+    }
     if (vector1.dim != vector2.dim) {
         std::cerr << "Different dimensions!";
         std::exit(-1);

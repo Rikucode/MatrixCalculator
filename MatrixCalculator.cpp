@@ -32,5 +32,19 @@ void m_out(Matrix matrix) {
 
 int main(){
     //Поле для экспериментов
+    Vector vector1(2,3,4);
+    Vector vector2(4,2,9);
+    cout << "Vector's sum: ";
+    v_out(vector1 + vector2);
+    cout << "Vector's dif: ";
+    v_out(vector1 - vector2);
+    cout << "Vector and scalar product: ";
+    v_out(vector1 * 3);
+    transpVector(vector2);
+    cout << "Vectors' scalar product (row on column): " << vector1*vector2 << endl;
+    transpVector(vector2);
+    cout << "Vectors' cross product: ";
+    v_out(vector1(vector1,vector2));
+
     return 0;
 }
