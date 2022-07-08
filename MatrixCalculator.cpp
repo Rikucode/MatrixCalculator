@@ -1,33 +1,36 @@
 #include "MatrixCalculator.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
 void v_out(Vector vector) {
-    cout << "x: " << vector.x << "; y: " << vector.y << "; z: " << vector.z << endl;
+    if (vector.isRow) {
+        for (int i = 0; i < vector.dim; ++i) {
+            cout << vector.coordinates[i] << ' ';
+        }
+        cout << endl;
+    } else {
+        for (int i = 0; i < vector.dim; ++i) {
+            cout << vector.coordinates[i] << endl;
+        }
+    }
 }
 
 void m_out(Matrix matrix) {
     for (int i = 0; i < matrix.n; ++i) {
         for (int j = 0; j < matrix.m; ++j) {
-            cout << matrix.values[i][j] << ' ';
+            if (abs(matrix.values[i][j]) < 1.0e-10){
+                cout << "0 ";
+            } else {
+                cout << matrix.values[i][j] << setprecision(10) << ' ';
+            }
         }
         cout << endl;
     }
 }
 
 int main(){
-//    vector<vector<double>> matrixV = {{1,2,2},{3,1,1}};
-//    vector<vector<double>> matrix1 = {{4,2},{3,1},{1,5}};
-//    vector<vector<double>> matrix2 = {{1,4,5},{32,5,0},{3,2,9}};
-//    Matrix matrix(matrixV);
-//    Matrix matrixA(matrix1);
-//    matrix = matrixA * matrix;
-//    m_out(matrix);
-//    Vector vector1(2,2,3);
-//    Vector vector2(3,4,5);
-//    Vector vector(0,0,0);
-//    vector (vector1,vector2);
-//    v_out(vector);
+    //Поле для экспериментов
     return 0;
 }
